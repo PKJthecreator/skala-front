@@ -1,9 +1,12 @@
-/* [미션 1] 전역 스타일 & 변수 */
+/* ==========================================================================
+   [미션 1] 전역 스타일 & 변수 (CSS 기초)
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
 
 :root {
     --primary-color: #0d54e3;
-    --primary-light: #eef2ff;      /* 포인트 컬러의 옅은 배경 버전 */
+    --primary-rgb: 13, 84, 227;        /* rgba(var(--primary-rgb), 0.x) 형태로 활용 */
+    --primary-light: #eef2ff;
     --main-text-color: #333;
     --sub-text-color: #6b7280;
     --bg-color: #f5f7fa;
@@ -13,6 +16,7 @@
     --table-zebra: #f9f9f9;
     --success-color: #12876f;
     --danger-color: #e74c3c;
+    --nav-accent: #16a085;             /* 내비게이션 전용 포인트(청록) */
     --shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     --shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.1);
     --radius: 16px;
@@ -20,11 +24,13 @@
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; } /* 앵커 이동 시 부드러운 스크롤 */
+
 body {
     font-family: 'Poor Story', sans-serif;
     line-height: 1.6;
     color: var(--main-text-color);
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); /* 은은한 그라데이션 배경 */
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     font-size: 18px;
     margin: 0;
 }
@@ -58,30 +64,31 @@ a {
 }
 a:hover { color: var(--primary-color); text-decoration: underline; }
 
-/* [미션 2] 박스 모델 & 레이아웃 - 카드형 UI */
+hr {
+    border: none;
+    border-top: 1px solid var(--input-border);
+    margin: 24px 0;
+}
+
+/* ==========================================================================
+   [미션 2] 박스 모델 & 레이아웃 - 카드형 UI
+   ========================================================================== */
 .container {
     max-width: 700px;
     margin: 40px auto;
     padding: 40px;
     background-color: #fff;
-    border-radius: 24px;               /* Tailwind rounded-3xl 느낌 */
+    border-radius: 24px;
     box-shadow: var(--shadow-hover);
     border: 1px solid #f1f1f1;
 }
 
-/* 카드 내부를 구획별로 나누는 옅은 회색 섹션 박스 */
 .section-box, .trip-card {
     background-color: #f9fafb;
     border: 1px solid #eef0f3;
     border-radius: var(--radius);
     padding: 20px 22px;
     margin-bottom: 18px;
-    transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.trip-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
 }
 
 .section-box > h3, .trip-card > h3 {
@@ -92,7 +99,19 @@ a:hover { color: var(--primary-color); text-decoration: underline; }
     margin-bottom: 12px;
 }
 
-/* 상태 뱃지 (data-status 속성으로 색 분기) */
+/* 이미지/영상이 HTML width 속성과 상관없이 부모(카드) 폭에 맞게 자동으로 줄어들도록 처리 */
+.trip-card img,
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.trip-card {
+    text-align: center;   /* 이미지+캡션 텍스트를 카드 중앙 정렬 */
+}
+
 .tag {
     display: inline-block;
     padding: 4px 12px;
@@ -117,7 +136,9 @@ th { background-color: var(--accent-color); color: #fff; font-weight: normal; }
 tbody tr:nth-child(even) { background-color: var(--table-zebra); }
 tbody tr:hover { background-color: var(--primary-light); }
 
-/* [미션 3] 회원가입 폼 - 필박스 스타일 */
+/* ==========================================================================
+   [미션 3] 회원가입 폼 - 필박스 스타일
+   ========================================================================== */
 fieldset {
     background-color: #f9fafb;
     border: 1px solid #eef0f3;
@@ -142,7 +163,7 @@ input[type="text"], input[type="password"], input[type="date"], select, textarea
     width: 100%;
     padding: 12px 14px;
     border: 1px solid var(--input-border);
-    border-radius: 10px;               /* Tailwind rounded-xl 느낌 */
+    border-radius: 10px;
     background-color: #fff;
     font-family: inherit;
     font-size: 1rem;
@@ -152,7 +173,7 @@ input[type="text"], input[type="password"], input[type="date"], select, textarea
 input:focus, select:focus, textarea:focus {
     border-color: var(--input-focus);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* Tailwind focus:ring 느낌 */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 input[type="checkbox"], input[type="radio"] {
@@ -163,7 +184,6 @@ input[type="checkbox"], input[type="radio"] {
 
 textarea { resize: vertical; min-height: 90px; }
 
-/* 버튼 - 크고 둥근 필(pill) 형태 */
 .btn-submit, .btn-reset {
     padding: 14px 26px;
     border: none;
@@ -172,13 +192,13 @@ textarea { resize: vertical; min-height: 90px; }
     font-weight: bold;
     font-family: inherit;
     font-size: 1rem;
-    transition: 0.25s;
+    transition: all 0.25s ease;      /* 미션3/6 중복분 통합 */
 }
 
 .btn-submit {
     background-color: var(--primary-color);
     color: #fff;
-    box-shadow: 0 6px 14px rgba(35, 15, 216, 0.25);
+    box-shadow: 0 6px 14px rgba(var(--primary-rgb), 0.25); /* 변수와 색이 항상 동기화되도록 수정 */
 }
 .btn-submit:hover { background-color: var(--success-color); }
 .btn-submit:active { transform: scale(0.97); }
@@ -191,8 +211,122 @@ textarea { resize: vertical; min-height: 90px; }
 
 .btn-submit + .btn-reset, .btn-reset + .btn-submit { margin-left: 10px; }
 
-/* 반응형 */
+/* 키보드 탭 이동 접근성 */
+.btn-submit:focus-visible, .btn-reset:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   [미션 4] Flex와 Grid로 레이아웃 잡기 (CSS 심화)
+   ========================================================================== */
+/* 상단 바로가기 메뉴 (Flexbox 가로 배치) */
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 20px;
+}
+
+nav a {
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+/* 본문(main) + 사이드바(aside) 가로 배치 */
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+main {
+    flex: 7;                          /* 전체 폭의 70% */
+    padding: 15px;
+}
+
+aside {
+    flex: 3;                          /* 전체 폭의 30% */
+    background-color: var(--bg-color);
+    padding: 15px;
+    border-radius: 6px;
+}
+
+/* 여행지 앨범 3열 바둑판 배치 (Grid) */
+.trip-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ==========================================================================
+   [미션 5] 반응형 미디어 쿼리 (768px 이하 태블릿/모바일)
+   ========================================================================== */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+    main, aside {
+        width: 100%;
+    }
+    .trip-grid-container {
+        grid-template-columns: 1fr;   /* 3열 -> 1열 */
+    }
+}
+
+/* 480px 이하 소형 모바일 전용 추가 조정 */
 @media (max-width: 480px) {
     .container { padding: 20px; margin: 20px 12px; border-radius: 18px; }
     .btn-submit, .btn-reset { width: 100%; margin: 6px 0 0 0 !important; }
+}
+
+/* ==========================================================================
+   [미션 6] 부드러운 전환과 애니메이션
+   ========================================================================== */
+nav a {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav a:hover {
+    background-color: var(--nav-accent);
+    color: #fff;
+}
+
+.trip-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.6s ease-out both;   /* 카드 등장 애니메이션 */
+}
+.trip-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 카드가 순서대로 하나씩 나타나도록 딜레이 부여 (그리드 내 최대 6개 기준) */
+.trip-card:nth-child(1) { animation-delay: 0.05s; }
+.trip-card:nth-child(2) { animation-delay: 0.15s; }
+.trip-card:nth-child(3) { animation-delay: 0.25s; }
+.trip-card:nth-child(4) { animation-delay: 0.35s; }
+.trip-card:nth-child(5) { animation-delay: 0.45s; }
+.trip-card:nth-child(6) { animation-delay: 0.55s; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+header h1 {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* 모션에 민감한 사용자를 위한 배려 (접근성) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
 }
