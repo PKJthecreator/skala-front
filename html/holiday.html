@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Premium Holiday Routine</title>
+    <style>
+        /* 1. 모던하고 미니멀한 웹폰트 및 배경 설정 */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 2. 노션/슬랙 스타일의 입체감 있는 모던 카드 디자인 (ID 사용) */
+        #modern-routine-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 520px;
+            padding: 45px 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.02);
+            box-sizing: border-box;
+        }
+
+        /* 3. 제목 영역 디자인 */
+        .header-area {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #f1f3f5;
+            padding-bottom: 15px;
+        }
+
+        /* 필수 사용 Element: <h1> */
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a1b1d;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* 부제목 스타일 */
+        .subtitle {
+            font-size: 14px;
+            color: #868e96;
+            margin: 0;
+        }
+
+        /* 4. 중첩 HTML 리스트 (ul - ul 구조) */
+        ul.routine-container {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 대분류 카테고리 스타일 */
+        ul.routine-container > li {
+            margin-bottom: 35px;
+        }
+
+        /* 필수 사용 Element: <h2> */
+        h2 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2b3a4a;
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 5. 내부 일과 리스트를 연결하는 모던 타임라인 가이드라인 (ul 디자인) */
+        ul.task-list {
+            list-style-type: none;
+            padding-left: 15px;
+            margin: 0;
+            border-left: 2px solid #e9ecef; /* 타임라인 수직선 */
+            margin-left: 8px;
+        }
+
+        /* 개별 리스트 아이템 스타일 */
+        ul.task-list li {
+            position: relative;
+            font-size: 14px;
+            color: #495057;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        /* 마지막 아이템 아래의 가이드라인 여백 조절 */
+        ul.task-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 타임라인의 원형 포인트 노드 구현 (CSS 가상 요소) */
+        ul.task-list li::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #4f46e5; /* 포인트 인디고 블루 색상 */
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 2px #e9ecef;
+        }
+
+        /* 6. 시간 및 텍스트 커스텀 */
+        .time-badge {
+            font-size: 12px;
+            font-weight: 700;
+            color: #4f46e5;
+            background-color: #eef2ff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-right: 8px;
+        }
+
+        /* 필수 사용 Element: <mark> (트렌디한 형광펜 언더라인 효과로 변경) */
+        mark {
+            background: linear-gradient(120deg, rgba(255, 224, 102, 0.4) 0%, rgba(255, 224, 102, 0.4) 100%);
+            background-color: transparent;
+            color: #1a1b1d;
+            font-weight: 600;
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        /* 7. <a> 태그: 하이퍼링크 스타일링 */
+        .inline-link {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed rgba(79, 70, 229, 0.4);
+            transition: all 0.2s ease;
+        }
+        .inline-link:hover {
+            color: #312e81;
+            border-bottom: 1px solid #312e81;
+            background-color: rgba(79, 70, 229, 0.05);
+        }
+
+        /* 8. 작성일 푸터 영역 스타일 */
+        #footer-info {
+            font-size: 12px;
+            color: #adb5bd;
+            text-align: right;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. <div> 및 ID 활용: 메인 카드 컨테이너 -->
+    <div id="modern-routine-card">
+        
+        <div class="header-area">
+            <h1>✨ My Perfect Holiday ✨</h1>
+            <p class="subtitle">나만을 위해 온전히 사용하는 시간</p>
+        </div>
+
+        <!-- 2. 중첩 HTML 리스트 (바깥쪽 <ul> - 안쪽 <ul>) -->
+        <ul class="routine-container">
+            
+            <!-- 아침 섹션 (활동 4개) -->
+            <li>
+                <h2>🌅 오전</h2>
+                <ul class="task-list">
+                    <li>
+                        <span class="time-badge">09:00</span> 🛌 늦잠 자는 행복 만끽하기
+                    </li>
+                    <li>
+                        <span class="time-badge">10:00</span> 🍳 여유 있게 준비한 <mark>브런치</mark> 즐기기
+                    </li>
+                    <li>
+                        <span class="time-badge">11:00</span> 🧘 가벼운 요가 스트레칭으로 몸 깨우기
+                    </li>
+                    <li>
+                        <!-- <a> 태그 활용 예시 -->
+                        <span class="time-badge">11:30</span> ☕ 좋아하는 <a href="https://music.youtube.com" target="_blank" class="inline-link">음악 플레이리스트</a> 들으며 커피 한 잔
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 오후 섹션 (활동 4개) -->
+            <li>
+                <h2>🚶 오후 활동</h2>
+                <ul class="task-list">
+                    <li>
+                        <span class="time-badge">13:00</span> 🌳 공원 산책하며 머릿속 정리하기
+                    </li>
+                    <li>
+                        <span class="time-badge">14:30</span> 📸 필름 카메라로 일상의 사소한 순간들 기록하기
+                    </li>
+                    <li>
+                        <span class="time-badge">16:00</span> 🛍️ 무분별한 소비 대신 나를 위한 <mark>창의적인 쇼핑</mark>
+                    </li>
+                    <li>
+                        <!-- inline style 속성 활용 예시 -->
+                        <span class="time-badge">17:00</span> 💻 조용한 동네 카페에서 <span style="color: #087f5b; font-weight: 600;">개인 코딩 프로젝트</span> 진행하기
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 저녁 섹션 (활동 4개) -->
+            <li>
+                <h2>🎬 저녁과 밤</h2>
+                <ul class="task-list">
+                    <li>
+                        <span class="time-badge">18:30</span> 🍲 정성을 담아 맛있고 건강한 저녁 만들기
+                    </li>
+                    <li>
+                        <span class="time-badge">20:00</span> 🍿 소파에 누워 인생 영화 감상하기 (코미디 강추!)
+                    </li>
+                    <li>
+                        <span class="time-badge">22:00</span> 📖 침대 머리맡 스탠드 켜고 짧은 독서 시간 가지기
+                    </li>
+                    <li>
+                        <span class="time-badge">23:30</span> ✍️ 하루 동안 감사했던 일들 일기장에 기록하기
+                    </li>
+                </ul>
+            </li>
+
+        </ul> <!-- 중첩 리스트 끝 -->
+
+        <!-- 필수 사용 Element: <br> 과 <p> -->
+        <br>
+        <p id="footer-info">
+            🗓️ 최종 업데이트: <span style="font-weight: 600; color: #868e96;">2026년 7월</span>
+        </p>
+
+    </div>
+
+</body>
+</html>
