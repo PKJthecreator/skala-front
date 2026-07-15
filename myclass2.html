@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>나의 강의 일정</title>
+</head>
+<body>
+
+<!-- 전체 요소를 오른쪽으로 이동시키기 위한 정렬 컨테이너 -->
+<div align="right">
+
+    <!-- [과제 요구사항] 변경된 제목 구성 -->
+    <h2>📅 나의 2주차 강의 시간표 📅</h2>
+    
+    <!-- 테이블 너비를 85%로 설정하고 우측 정렬, 테두리와 안쪽 여백(Cellpadding)을 주어 단조로움 탈피 -->
+    <table border="1" cellpadding="12" cellspacing="0" width="85%" align="right" bgcolor="#fafafa">
+        <thead>
+            <!-- 헤더 영역에 차분한 푸른색 계열 배경 적용 -->
+            <tr bgcolor="#e6f2ff" align="center">
+                <th width="15%">시간</th>
+                <th width="17%">월요일</th>
+                <th width="17%">화요일</th>
+                <th width="17%">수요일</th>
+                <th width="17%">목요일</th>
+                <th width="17%">금요일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 1교시 (09:00 - 10:00) -->
+            <tr align="center">
+                <td bgcolor="#f1f3f5"><strong>09:00 - 10:00</strong></td>
+                <!-- 3시간 연강 (rowspan 3) + 공식 문서 링크 + 툴팁(title) 추가 -->
+                <td rowspan="3" bgcolor="#e3faf2" title="장소: IT관 301호 | 담당: 김교수 (프론트엔드 프레임워크 실습)">
+                    <a href="https://vuejs.org" target="_blank" style="text-decoration: none; color: #0c8599;">
+                        <strong>Vue.js 웹 프레임워크 🖥️</strong>
+                    </a>
+                </td>
+                <!-- 2시간 연강 (rowspan 2) + 형광펜 강조(<mark>) 추가 -->
+                <td rowspan="2" bgcolor="#f3f0fc" title="장소: 공학관 405호 | 담당: 이교수 (네트워크 및 정보보안 기초)">
+                    <mark>네트워크 보안 기초 🔒</mark>
+                </td>
+                <td rowspan="3" bgcolor="#e8f4f8" title="장소: IT관 102호 | 담당: 박교수 (웹 시스템 설계 패턴 및 분석)">
+                    웹 시스템 설계 및 분석 🛠️
+                </td>
+                <td bgcolor="#fff9db" title="장소: 대강당 | 외부 명사 초청 특강">
+                    IT 트렌드 특강 💡
+                </td>
+                <td rowspan="3" bgcolor="#e3faf2" title="장소: 공학관 301호 | 담당: 최교수 (ES6+ 자바스크립트 심화)">
+                    <strong>자바스크립트 심화 실습 🔮</strong>
+                </td>
+            </tr>
+
+            <!-- 2교시 (10:00 - 11:00) -->
+            <tr align="center">
+                <td bgcolor="#f1f3f5"><strong>10:00 - 11:00</strong></td>
+                <!-- 월요일, 수요일, 금요일은 rowspan으로 자동 패스 -->
+                <!-- 목요일: 2시간 연강 (rowspan 2) -->
+                <td rowspan="2" bgcolor="#fff9db" title="장소: 공학관 203호 | 담당: 정교수 (관계형 데이터베이스와 SQL 설계)">
+                    <a href="https://www.mysql.com" target="_blank" style="text-decoration: none; color: #b06e0e;">
+                        데이터베이스 SQL 실습 🗄️
+                    </a>
+                </td>
+            </tr>
+
+            <!-- 3교시 (11:00 - 12:00) -->
+            <tr align="center">
+                <td bgcolor="#f1f3f5"><strong>11:00 - 12:00</strong></td>
+                <!-- 화요일: 백준 & solved.ac 연동 링크 적용 (알고리즘 역량 표시) -->
+                <td bgcolor="#f3f0fc" title="장소: 공학관 405호 | 자료구조를 활용한 문제해결력 기르기">
+                    <a href="https://solved.ac" target="_blank" style="text-decoration: none; color: #7048e8;">
+                        <strong>알고리즘 문제풀이 🧠</strong>
+                    </a>
+                </td>
+            </tr>
+
+            <!-- 점심 시간 (12:00 - 13:00) : 전체 열 병합(colspan 5) + 핑크색 강조 -->
+            <tr align="center" bgcolor="#ffe3e3">
+                <td bgcolor="#f1f3f5"><strong>12:00 - 13:00</strong></td>
+                <td colspan="5" title="맛있는 점심 및 충분한 휴식 시간">
+                    <strong>🍱 점 심 시 간 🍱</strong>
+                </td>
+            </tr>
+
+            <!-- 4교시 (13:00 - 14:00) -->
+            <tr align="center">
+                <td bgcolor="#f1f3f5"><strong>13:00 - 14:00</strong></td>
+                <td rowspan="3" bgcolor="#e8f4f8" title="장소: 디자인센터 101호 | Figma를 활용한 인터페이스 표준 설계">
+                    UI/UX 디자인 표준 🎨
+                </td>
+                <td rowspan="2" bgcolor="#f3f0fc" title="장소: 공학관 405호 | CentOS 및 Ubuntu 환경 서버 운영 및 실무">
+                    리눅스 시스템 관리 ☁️
+                </td>
+                <td rowspan="2" bgcolor="#fff9db" title="장소: IT관 102호 | AWS EC2 및 S3 인프라 아키텍처 실습">
+                    <a href="https://aws.amazon.com" target="_blank" style="text-decoration: none; color: #b06e0e;">
+                        클라우드 AWS 기초 ☁️
+                    </a>
+                </td>
+                <td rowspan="3" bgcolor="#fff9db" title="장소: 공학관 203호 | 선형 및 비선형 자료구조 구현 분석">
+                    <strong>자료구조 📊</strong>
+                </td>
+                <td bgcolor="#e2f0d9" title="장소: 동아리방 | 자율학습 및 포트폴리오 개인 프로젝트 진행">
+                    개인 프로젝트 🚀
+                </td>
+            </tr>
+
+            <!-- 5교시 (14:00 - 15:00) -->
+            <tr align="center">
+                <td bgcolor="#f1f3f5"><strong>14:00 - 15:00</strong></td>
+                <td rowspan="2" bgcolor="#e3faf2" title="장소: 공학관 301호 | 오픈소스 라이선스 구조 및 컨트리뷰션 실무">
+                    오픈소스 소프트웨어 🔓
+                </td>
+            </tr>
+
+            <!-- 6교시 (15:00 - 16:00) -->
+            <tr align="center">
+                <td bgcolor="#f1f3f5"><strong>15:00 - 16:00</strong></td>
+                <td rowspan="2" bgcolor="#f3f0fc" title="장소: 공학관 405호 | Git 버전 분기 관리 및 GitHub 협업">
+                    <a href="https://github.com" target="_blank" style="text-decoration: none; color: #7048e8;">
+                        Git & GitHub 버전 관리 🐙
+                    </a>
+                </td>
+                <td rowspan="2" bgcolor="#fff9db" title="장소: IT관 102호 | 지도학습, 비지도학습 기본 라이브러리 분석">
+                    인공지능 머신러닝 기초 🤖
+                </td>
+            </tr>
+
+            <!-- 7교시 (16:00 - 17:00) -->
+            <tr align="center">
+                <td bgcolor="#f1f3f5"><strong>16:00 - 17:00</strong></td>
+                <!-- 월요일: 공강 표시 -->
+                <td bgcolor="#faf9f9"><em>-</em></td>
+                <td rowspan="2" bgcolor="#fff9db" title="장소: 공학관 203호 | Pandas, Numpy 활용 빅데이터 가공 및 분석 실무">
+                    빅데이터 분석 실무 📈
+                </td>
+                <td bgcolor="#e2f0d9" title="장소: 동아리방 | 2주차 학습 내용 정리 및 노션 회고작성">
+                    주간 회고 📝
+                </td>
+            </tr>
+
+            <!-- 8교시 (17:00 - 18:00) -->
+            <tr align="center">
+                <td bgcolor="#f1f3f5"><strong>17:00 - 18:00</strong></td>
+                <td bgcolor="#ffe8cc" title="장소: 대강당 | 성공적인 취업 로드맵 및 모빌리티 스타트업 트렌드">
+                    <strong>취업 창업 특강 💼</strong>
+                </td>
+                <td bgcolor="#faf9f9"><em>-</em></td>
+                <td bgcolor="#faf9f9"><em>-</em></td>
+                <td bgcolor="#faf9f9"><em>-</em></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 우측 정렬 상태(Float 효과)를 해제하고 다음 섹션과 간격을 두기 위한 태그 -->
+    <br clear="all">
+    <br>
+
+    <!-- [미지시 추가 실습] 마크업 응용력을 보여주기 위한 무정렬 테두리 없는 가이드 테이블 -->
+    <table border="0" width="85%" align="right">
+        <tr>
+            <td align="left">
+                <details>
+                    <summary><strong>🔍 2주차 강의실 상세 주의사항 및 실습 가이드 (클릭 시 전개)</strong></summary>
+                    <hr width="100%" size="1" color="#cccccc">
+                    <p>본 시간표는 2주차 학사 운영 기준이며, 원활한 실습을 위해 다음 기본 환경을 권장합니다.</p>
+                    <ul>
+                        <li><strong>실습 준비물:</strong> VS Code 설치, 개인 GitHub 리포지토리 구성</li>
+                        <li><strong>자율 학습:</strong> 공강 시간(월요일 16시 등) 및 개인 프로젝트 시간은 공학관 오픈 실습실 활용 가능</li>
+                        <li><strong>평가 요소:</strong> 출석 20%, 수업 중 수시 실습 제출물 40%, 최종 포트폴리오 40%</li>
+                    </ul>
+                </details>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
