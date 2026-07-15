@@ -1,177 +1,198 @@
-/* ==========================================================================
-   [미션 1] 구글 폰트 불러오기
-   ========================================================================== */
-/* 구글 폰트 서버에서 Noto Sans KR(400:기본, 700:두껍게) 글꼴을 로드합니다. */
+/* [미션 1] 전역 스타일 & 변수 */
 @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
 
-/* 전체 페이지 글꼴 및 배경 기본 설정 */
+:root {
+    --primary-color: #0d54e3;
+    --primary-light: #eef2ff;      /* 포인트 컬러의 옅은 배경 버전 */
+    --main-text-color: #333;
+    --sub-text-color: #6b7280;
+    --bg-color: #f5f7fa;
+    --accent-color: #2c3e50;
+    --input-border: #dcdfe4;
+    --input-focus: #3b82f6;
+    --table-zebra: #f9f9f9;
+    --success-color: #12876f;
+    --danger-color: #e74c3c;
+    --shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.1);
+    --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
 body {
-    font-family: 'Poor Story', sans-serif; /* 구글 폰트를 적용하고, 실패 시 기본 고딕체 사용 */
-    line-height: 1.2;                  /* 줄간격을 넓혀 가독성 확보 */
-    color: #333333;                  /* 너무 완전한 검은색(#000)보다 눈이 편한 짙은 회색 */
-    background-color: #fcfcfc;       /* 완전 흰색보다 부드러운 아이보리빛 미색 */
-    font-size: 20px;
+    font-family: 'Poor Story', sans-serif;
+    line-height: 1.6;
+    color: var(--main-text-color);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); /* 은은한 그라데이션 배경 */
+    font-size: 18px;
+    margin: 0;
 }
 
-/* 메인 제목 스타일 (h1) */
 h1 {
-    color: #2c3e50;         /* 신뢰감을 주는 짙은 남색(Navy) */
-    font-size: 30px;           /* 글자 크기 */
-    padding-bottom: 10px;     /* 밑줄과 글자 사이의 여백 */
-    border-bottom: 3px solid #2c3e50; /* 제목 아래에 도톰한 메인 컬러 선 추가 */
+    color: var(--accent-color);
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 12px;
 }
 
-/* 부제목 h2: 꽉 찬 한 줄 띠지 느낌 (주요 구역 구분) */
 h2 {
-    color: #2c3e50;             /* 메인 남색 적용 */
-    font-size: 25px;           /* h1보다 조금 작은 크기 */
-    background-color: #ecf0f1;  /* 밝은 회색 배경색으로 한 줄을 채움 */
-    padding: 10px 15px;         /* 박스 내부 여백 (상하 10px, 좌우 15px) */
-    border-left: 5px solid #16a085; /* 왼쪽에 포인트가 되는 청록색 두꺼운 선 추가 */
-    margin-top: 40px;           /* 위쪽 콘텐츠와 충분한 거리 확보 */
-    margin-bottom: 15px;        /* 아래쪽 콘텐츠와의 간격 */
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    background-color: var(--primary-light);
+    padding: 10px 16px;
+    border-radius: 10px;
+    margin: 30px 0 15px 0;
 }
 
-/* 소제목 h3: 말머리 기호(💡/📌 등)를 깔끔하게 강조하는 밑줄 형태 */
 h3 {
-    color: #16a085;             /* 포인트 청록색 적용 */
-    font-size: 18px;           /* 본문보다 약간 큰 크기 */
-    padding-bottom: 5px;        /* 밑줄과의 간격 */
-    border-bottom: 2px solid #16a085; /* 아래쪽에 깔끔한 실선 추가 */
-    margin-top: 25px;
-    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-top: 10px;
 }
 
-/* 본문 텍스트 링크 스타일 */
 a {
-    color: #2980b9;         /* 링크는 선명한 파란색 */
-    text-decoration: none;  /* 밑줄 제거하여 깔끔하게 처리 */
+    color: #2980b9;
+    text-decoration: none;
+    transition: 0.3s;
 }
+a:hover { color: var(--primary-color); text-decoration: underline; }
 
-/* 마우스를 올렸을 때만 밑줄이 생기도록 설정 (Hover 가상 클래스 맛보기) */
-a:hover {
-    text-decoration: underline;
-}
-
-/* ==========================================================================
-   [미션 2] 실습과제 박스 모델의 이해
-   ========================================================================== */
-
-/* 박스 크기 계산법 고정 */
-* {
-    box-sizing: border-box;
-}
-
-/* 전체 화면 폭 제한 및 중앙 정렬 (.container) */
+/* [미션 2] 박스 모델 & 레이아웃 - 카드형 UI */
 .container {
-    max-width: 1200px;       /* 화면의 최대 가로 폭을 800px로 제한 */
-    margin: 0 auto;         /* 위아래 여백은 0, 좌우는 알아서(auto) 채워 중앙 정렬 */
-    padding: 20px;          /* 브라우저 가장자리에 딱 붙지 않도록 안쪽 여백 추가 */
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 24px;               /* Tailwind rounded-3xl 느낌 */
+    box-shadow: var(--shadow-hover);
+    border: 1px solid #f1f1f1;
 }
 
-/* 여행 앨범의 개별 카드 스타일링 (.trip-card) */
-.trip-card {
-    background-color: #ffffff;      /* 카드 배경은 깔끔한 흰색 */
-    border: 1px solid #e0e0e0;      /* 연한 회색 테두리 선 */
-    border-radius: 8px;             /* 모서리를 부드럽게 깎음 */
-    padding: 20px;                  /* 카드 내부 테두리와 콘텐츠 사이의 두툼한 여백 */
-    margin-bottom: 25px;            /* 카드와 카드 사이가 떨어지도록 바깥 아래 여백 추가 */
-    
-    /* 그림자 효과 효과 (선택 사항이지만 박스 모델의 입체감을 주기 좋습니다) */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+/* 카드 내부를 구획별로 나누는 옅은 회색 섹션 박스 */
+.section-box, .trip-card {
+    background-color: #f9fafb;
+    border: 1px solid #eef0f3;
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 18px;
+    transition: transform 0.25s, box-shadow 0.25s;
 }
 
-/* 카드 내부의 이미지 조절 */
-.trip-card img {
-    display: block;                 /* 이미지를 블록화하여 아래 글씨와 자연스럽게 줄바꿈 */
-    margin-bottom: 12px;            /* 이미지와 아래 설명 글씨 사이의 여백 */
-    max-width: 100%;                /* 이미지가 부모 박스 밖으로 삐져나가지 않게 방지 */
-    height: auto;
+.trip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
 }
 
-/* 시간표 테이블 정돈 (myClass.html) */
+.section-box > h3, .trip-card > h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+/* 상태 뱃지 (data-status 속성으로 색 분기) */
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+.tag[data-status="완료"] { background-color: #e6f7f1; color: var(--success-color); }
+.tag[data-status="예정"] { background-color: #fdecea; color: var(--danger-color); }
+
 table {
-    width: 100%;                    /* 테이블이 부모 폭(800px)에 가득 차도록 설정 */
-    border-collapse: collapse;      /* HTML 특유의 겹치고 떨어져 있는 이중 테두리를 하나로 병합 */
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #dddddd;      /* 얇고 정돈된 테두리 */
-    padding: 12px;                  /* 셀 내부 여백을 늘려 쾌적하게 텍스트 배치 */
-    text-align: center;             /* 글자 중앙 정렬 */
-}
-
-th {
-    background-color: #f8f9fa;      /* 헤더 영역 배경색 지정을 통한 구분 */
-}
-
-/* ==========================
-   [미션 3] 회원가입 폼 스타일
-========================== */
-
-/* Fieldset */
-fieldset {
-    border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
     border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
 }
+th, td { padding: 12px; border: 1px solid #eee; }
+th { background-color: var(--accent-color); color: #fff; font-weight: normal; }
+tbody tr:nth-child(even) { background-color: var(--table-zebra); }
+tbody tr:hover { background-color: var(--primary-light); }
 
+/* [미션 3] 회원가입 폼 - 필박스 스타일 */
+fieldset {
+    background-color: #f9fafb;
+    border: 1px solid #eef0f3;
+    border-radius: var(--radius);
+    padding: 22px;
+    margin-bottom: 18px;
+}
 legend {
     padding: 0 10px;
     font-weight: bold;
-    color: #3b82f6;
+    color: var(--primary-color);
 }
 
-/* 입력 요소 */
-input[type="text"],
-input[type="password"],
-select,
-textarea {
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 0.95rem;
+    color: var(--accent-color);
+}
+
+input[type="text"], input[type="password"], input[type="date"], select, textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-}
-
-/* 버튼 공통 */
-.btn-submit,
-.btn-reset {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 12px 14px;
+    border: 1px solid var(--input-border);
+    border-radius: 10px;               /* Tailwind rounded-xl 느낌 */
+    background-color: #fff;
+    font-family: inherit;
     font-size: 1rem;
+    transition: border-color 0.25s, box-shadow 0.25s;
 }
 
-/* 회원가입 버튼 */
+input:focus, select:focus, textarea:focus {
+    border-color: var(--input-focus);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* Tailwind focus:ring 느낌 */
+}
+
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    accent-color: var(--primary-color);
+    margin-right: 6px;
+}
+
+textarea { resize: vertical; min-height: 90px; }
+
+/* 버튼 - 크고 둥근 필(pill) 형태 */
+.btn-submit, .btn-reset {
+    padding: 14px 26px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: 0.25s;
+}
+
 .btn-submit {
-    background-color: #3b82f6;
+    background-color: var(--primary-color);
     color: #fff;
+    box-shadow: 0 6px 14px rgba(35, 15, 216, 0.25);
 }
+.btn-submit:hover { background-color: var(--success-color); }
+.btn-submit:active { transform: scale(0.97); }
 
-/* 초기화 버튼 */
 .btn-reset {
     background-color: #e2e8f0;
-    color: #000;
+    color: var(--main-text-color);
 }
+.btn-reset:hover { background-color: #cbd5e1; }
 
-/* 유효성 검사 메시지 */
-.validation-msg {
-    display: block;
-    margin-top: 4px;
-    font-size: 0.8rem;
-}
+.btn-submit + .btn-reset, .btn-reset + .btn-submit { margin-left: 10px; }
 
-/* 성공 메시지 */
-.text-success {
-    color: #16a34a;
-}
-
-/* 실패 메시지 */
-.text-danger {
-    color: #dc2626;
+/* 반응형 */
+@media (max-width: 480px) {
+    .container { padding: 20px; margin: 20px 12px; border-radius: 18px; }
+    .btn-submit, .btn-reset { width: 100%; margin: 6px 0 0 0 !important; }
 }
