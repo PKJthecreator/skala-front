@@ -3,35 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 휴일 일과</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>My Premium Holiday Routine</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #modern-routine-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 520px;
+            padding: 45px 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.02);
+            box-sizing: border-box;
+        }
+
+        .header-area {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #f1f3f5;
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a1b1d;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #868e96;
+            margin: 0;
+        }
+
+        ul.routine-container {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.routine-container > li {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #2b3a4a;
+            margin: 0 0 15px 0;
+        }
+
+        ul.task-list {
+            padding-left: 20px; 
+            margin: 0;
+        }
+
+        ul.task-list li {
+            font-size: 14.5px;
+            color: #495057;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        ul.task-list li::marker {
+            color: #4f46e5;
+        }
+
+        ul.task-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        mark {
+            background: linear-gradient(120deg, rgba(255, 224, 102, 0.4) 0%, rgba(255, 224, 102, 0.4) 100%);
+            background-color: transparent;
+            color: #1a1b1d;
+            font-weight: 600;
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        .inline-link {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed rgba(79, 70, 229, 0.4);
+            transition: all 0.2s ease;
+        }
+        .inline-link:hover {
+            color: #312e81;
+            border-bottom: 1px solid #312e81;
+            background-color: rgba(79, 70, 229, 0.05);
+        }
+
+        #footer-info {
+            font-size: 12px;
+            color: #adb5bd;
+            text-align: right;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
 
-    <h1>🎉 나의 휴일 일과</h1>
-    <br>
+    <div id="modern-routine-card">
+        
+        <div class="header-area">
+            <h1>✨ My Perfect Holiday ✨</h1>
+            <p class="subtitle"><b>나만을 위해 온전히 사용하는 시간</b></p>
+        </div>
 
-    <h2>🛏️ <u>느긋한 아침</u></h2>
-    <p><b>09:00</b> - 😴 늦잠 자는 행복</p>
-    <p><b>10:00</b> - 🍳 여유 있게 <mark>브런치</mark> 즐기기</p>
-    <p><b>11:00</b> - ☕ <b>커피 한 잔</b>과 음악 감상 🎵</p>
-    <br>
+        <ul class="routine-container">
+            
+            <li>
+                <h2>🌅아침 및 오전</h2>
+                <ul class="task-list" style="list-style-type: circle;">
+                    <li>🛌 늦잠 자는 <mark>행복</mark> 만끽하기</li>
+                    <li>🧘 가벼운 스트레칭으로 몸 깨우기</li>
+                    <li>🍳 아침으로 엄마가 만들어 주신 <mark>집밥</mark></li>
+                    <li>🎶 좋아하는 <a href="https://youtu.be/SX_ViT4Ra7k?si=kSjFbBelu7foyZmR" target="_blank" rel="noopener noreferrer" class="inline-link">음악</a> 듣기</li>
+                </ul>
+            </li>
 
-    <h2>🚶 <u>오후 활동</u></h2>
-    <p><b>13:00</b> - 🏞️ 공원 산책하며 <b>마음 정리</b></p>
-    <p><b>14:30</b> - 📷 사진 찍으며 <b>일상의 순간 기록</b></p>
-    <p><b>16:00</b> - 🛍️ 충동구매 대신 <mark>창의적인 쇼핑</mark></p>
-    <br>
+            <li>
+                <h2>🌞오후</h2>
+                <ul class="task-list" style="list-style-type: circle;">
+                    <li>📽️ 영화 등 여가생활 즐기기</li>
+                    <li>🍵 좋아하는 차를 마시며 편안히 <b>휴식</b></li>
+                    <li>🛍️ 필요한 물건들 <b>쇼핑</b></li>
+                    <li>💻 조용하게 집에서 <span style="color: #0e37eb; font-weight: 600;">개인 과제 및 예습</span> 진행하기</li>
+                </ul>
+            </li>
 
-    <h2>🎬 <u>저녁과 밤</u></h2>
-    <p><b>18:00</b> - 🥘 <b>맛있는 저녁</b> 만들기</p>
-    <p><b>20:00</b> - 🎥 영화 감상 (코미디 추천 😂)</p>
-    <p><b>23:00</b> - 📖 짧은 독서 후 힐링 타임 🛁</p>
-    <br>
+            <li>
+                <h2>🎇 저녁 및 밤</h2>
+                <ul class="task-list" style="list-style-type: circle;">
+                    <li>🍲 정성을 담아 만들어 주신 건강한 <mark>저녁</mark> 즐기기</li>
+                    <li>🚩 <strong>목표를 세우고 일주일 돌아보는 시간</strong></li>
+                    <li>📌 SKCT, 면접 대비 등 <mark>취업</mark> 준비하기</li>
+                    <li>🍗 기숙사에서 먹지 못했던 맛있는 음식 먹어보기 🍜</li>
+                </ul>
+            </li>
 
-    <p>📅 휴일 버전 작성일: 2026년 5월</p>
+        </ul> 
+
+        <br>
+        <p id="footer-info">
+            🗓️ 작성일: <span style="font-weight: 600; color: #185898;">2026년 7월</span>
+        </p>
 
     </div>
+
 </body>
 </html>
