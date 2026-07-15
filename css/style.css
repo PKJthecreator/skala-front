@@ -52,3 +52,129 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+/* ==========================================================================
+   [미션 2] 실습과제 박스 모델의 이해
+   ========================================================================== */
+
+/* 박스 크기 계산법 고정 */
+* {
+    box-sizing: border-box;
+}
+
+/* 전체 화면 폭 제한 및 중앙 정렬 (.container) */
+.container {
+    max-width: 1200px;       /* 화면의 최대 가로 폭을 800px로 제한 */
+    margin: 0 auto;         /* 위아래 여백은 0, 좌우는 알아서(auto) 채워 중앙 정렬 */
+    padding: 20px;          /* 브라우저 가장자리에 딱 붙지 않도록 안쪽 여백 추가 */
+}
+
+/* 여행 앨범의 개별 카드 스타일링 (.trip-card) */
+.trip-card {
+    background-color: #ffffff;      /* 카드 배경은 깔끔한 흰색 */
+    border: 1px solid #e0e0e0;      /* 연한 회색 테두리 선 */
+    border-radius: 8px;             /* 모서리를 부드럽게 깎음 */
+    padding: 20px;                  /* 카드 내부 테두리와 콘텐츠 사이의 두툼한 여백 */
+    margin-bottom: 25px;            /* 카드와 카드 사이가 떨어지도록 바깥 아래 여백 추가 */
+    
+    /* 그림자 효과 효과 (선택 사항이지만 박스 모델의 입체감을 주기 좋습니다) */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+}
+
+/* 카드 내부의 이미지 조절 */
+.trip-card img {
+    display: block;                 /* 이미지를 블록화하여 아래 글씨와 자연스럽게 줄바꿈 */
+    margin-bottom: 12px;            /* 이미지와 아래 설명 글씨 사이의 여백 */
+    max-width: 100%;                /* 이미지가 부모 박스 밖으로 삐져나가지 않게 방지 */
+    height: auto;
+}
+
+/* 시간표 테이블 정돈 (myClass.html) */
+table {
+    width: 100%;                    /* 테이블이 부모 폭(800px)에 가득 차도록 설정 */
+    border-collapse: collapse;      /* HTML 특유의 겹치고 떨어져 있는 이중 테두리를 하나로 병합 */
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;      /* 얇고 정돈된 테두리 */
+    padding: 12px;                  /* 셀 내부 여백을 늘려 쾌적하게 텍스트 배치 */
+    text-align: center;             /* 글자 중앙 정렬 */
+}
+
+th {
+    background-color: #f8f9fa;      /* 헤더 영역 배경색 지정을 통한 구분 */
+}
+
+/* ==========================================================================
+   [미션 3] 가독성 높은 회원가입 폼
+   ========================================================================== */
+/* 그룹 상자(fieldset)와 제목(legend) 다듬기 */
+
+fieldset {
+    border: 1px solid #e0e0e0;      /* 딱딱한 검은 선을 연한 회색 실선으로 변경 */
+    border-radius: 6px;             /* 모서리를 둥글게 처리 */
+    padding: 20px;                  /* 그룹 상자 내부 여백을 두툼하게 설정 */
+    margin-bottom: 20px;            /* fieldset끼리 서로 겹치지 않게 바깥 여백 추가 */
+}
+
+legend {
+    font-weight: bold;              /* 그룹 제목은 두껍게 */
+    color: #2c3e50;                 /* 메인 남색 적용 */
+    padding: 0 10px;                /* 선과 글자가 붙지 않도록 좌우 여백 추가 */
+}
+
+/* 텍스트 입력창, 비밀번호창, 셀렉트 박스 일괄 디자인 (태그 및 속성 선택자 활용) */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;                    /* 입력창들을 부모 박스 가로 폭에 가득 차게 늘림 */
+    padding: 10px;                  /* 글자가 입력되는 내부 여백을 늘려 쾌적하게 만듦 */
+    margin-top: 5px;                /* label 글씨 바로 밑으로 내려오도록 위쪽 마진 추가 */
+    margin-bottom: 15px;            /* 다음 항목과의 간격 벌리기 */
+    border: 1px solid #cccccc;      /* 부드러운 테두리 선 */
+    border-radius: 4px;             /* 입력창 모서리 깎기 */
+    font-family: inherit;           /* body에 지정된 구글 폰트를 입력창 내부에도 상속 */
+    font-size: 0.95em;
+}
+
+/* 라디오 버튼과 체크박스는 가로 폭 100%에서 제외 (중요!) */
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;                    /* 동그라미/네모 상자가 거대해지는 것을 방지 */
+    margin-right: 5px;              /* 우측 글씨와의 간격 확보 */
+    cursor: pointer;                /* 마우스를 올렸을 때 손가락 모양으로 변경 */
+}
+
+/* 자기소개창(textarea) 크기 고정 */
+textarea {
+    resize: vertical;               /* 사용자가 가로로 늘려서 레이아웃이 깨지는 것을 방지 (세로만 조절 가능) */
+    min-height: 120px;              /* 최소 높이 지정 */
+}
+
+/* 버튼 공통 스타일링 */
+.btn-submit,
+.btn-reset {
+    padding: 12px 25px;             /* 버튼을 누르기 편하게 뚱뚱하게 만듦 */
+    font-size: 1em;
+    font-weight: bold;
+    border: none;                   /* 기본 브라우저가 주는 투박한 테두리 제거 */
+    border-radius: 4px;             /* 모서리 둥글게 */
+    cursor: pointer;                /* 마우스 포인터 손가락 모양으로 */
+    margin-right: 10px;             /* 버튼끼리 떨어지도록 우측 간격 추가 */
+}
+
+/* 회원가입 버튼 개별 스타일 (메인 포인터 컬러) */
+.btn-submit {
+    background-color: #16a085;      /* 메인 청록색 배경 */
+    color: #ffffff;                 /* 글자색 흰색 */
+}
+
+/* 다시 작성 버튼 개별 스타일 (서브 회색 컬러) */
+.btn-reset {
+    background-color: #bdc3c7;      /* 차분한 회색 배경 */
+    color: #ffffff;
+}
