@@ -106,75 +106,72 @@ th {
     background-color: #f8f9fa;      /* 헤더 영역 배경색 지정을 통한 구분 */
 }
 
-/* ==========================================================================
-   [미션 3] 가독성 높은 회원가입 폼
-   ========================================================================== */
-/* 그룹 상자(fieldset)와 제목(legend) 다듬기 */
+/* ==========================
+   [미션 3] 회원가입 폼 스타일
+========================== */
 
+/* Fieldset */
 fieldset {
-    border: 1px solid #e0e0e0;      /* 딱딱한 검은 선을 연한 회색 실선으로 변경 */
-    border-radius: 6px;             /* 모서리를 둥글게 처리 */
-    padding: 20px;                  /* 그룹 상자 내부 여백을 두툼하게 설정 */
-    margin-bottom: 20px;            /* fieldset끼리 서로 겹치지 않게 바깥 여백 추가 */
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 legend {
-    font-weight: bold;              /* 그룹 제목은 두껍게 */
-    color: #2c3e50;                 /* 메인 남색 적용 */
-    padding: 0 10px;                /* 선과 글자가 붙지 않도록 좌우 여백 추가 */
+    padding: 0 10px;
+    font-weight: bold;
+    color: #3b82f6;
 }
 
-/* 텍스트 입력창, 비밀번호창, 셀렉트 박스 일괄 디자인 (태그 및 속성 선택자 활용) */
+/* 입력 요소 */
 input[type="text"],
 input[type="password"],
-input[type="email"],
-input[type="date"],
 select,
 textarea {
-    width: 100%;                    /* 입력창들을 부모 박스 가로 폭에 가득 차게 늘림 */
-    padding: 10px;                  /* 글자가 입력되는 내부 여백을 늘려 쾌적하게 만듦 */
-    margin-top: 5px;                /* label 글씨 바로 밑으로 내려오도록 위쪽 마진 추가 */
-    margin-bottom: 15px;            /* 다음 항목과의 간격 벌리기 */
-    border: 1px solid #cccccc;      /* 부드러운 테두리 선 */
-    border-radius: 4px;             /* 입력창 모서리 깎기 */
-    font-family: inherit;           /* body에 지정된 구글 폰트를 입력창 내부에도 상속 */
-    font-size: 0.95em;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
-/* 라디오 버튼과 체크박스는 가로 폭 100%에서 제외 (중요!) */
-input[type="radio"],
-input[type="checkbox"] {
-    width: auto;                    /* 동그라미/네모 상자가 거대해지는 것을 방지 */
-    margin-right: 5px;              /* 우측 글씨와의 간격 확보 */
-    cursor: pointer;                /* 마우스를 올렸을 때 손가락 모양으로 변경 */
-}
-
-/* 자기소개창(textarea) 크기 고정 */
-textarea {
-    resize: vertical;               /* 사용자가 가로로 늘려서 레이아웃이 깨지는 것을 방지 (세로만 조절 가능) */
-    min-height: 120px;              /* 최소 높이 지정 */
-}
-
-/* 버튼 공통 스타일링 */
+/* 버튼 공통 */
 .btn-submit,
 .btn-reset {
-    padding: 12px 25px;             /* 버튼을 누르기 편하게 뚱뚱하게 만듦 */
-    font-size: 1em;
-    font-weight: bold;
-    border: none;                   /* 기본 브라우저가 주는 투박한 테두리 제거 */
-    border-radius: 4px;             /* 모서리 둥글게 */
-    cursor: pointer;                /* 마우스 포인터 손가락 모양으로 */
-    margin-right: 10px;             /* 버튼끼리 떨어지도록 우측 간격 추가 */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
-/* 회원가입 버튼 개별 스타일 (메인 포인터 컬러) */
+/* 회원가입 버튼 */
 .btn-submit {
-    background-color: #16a085;      /* 메인 청록색 배경 */
-    color: #ffffff;                 /* 글자색 흰색 */
+    background-color: #3b82f6;
+    color: #fff;
 }
 
-/* 다시 작성 버튼 개별 스타일 (서브 회색 컬러) */
+/* 초기화 버튼 */
 .btn-reset {
-    background-color: #bdc3c7;      /* 차분한 회색 배경 */
-    color: #ffffff;
+    background-color: #e2e8f0;
+    color: #000;
+}
+
+/* 유효성 검사 메시지 */
+.validation-msg {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+}
+
+/* 성공 메시지 */
+.text-success {
+    color: #16a34a;
+}
+
+/* 실패 메시지 */
+.text-danger {
+    color: #dc2626;
 }
