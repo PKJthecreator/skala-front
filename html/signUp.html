@@ -13,13 +13,14 @@
     <p>SKALA-FRONT 회원가입을 환영합니다.</p>
     <hr>
 
-    <form action="signUpResult.html" method="get">
+    <form action="signUpResult.html" method="get" onsubmit="return validateForm()">
         
         <fieldset>
             <legend>계정 정보</legend>
             <p>
-                <label for="userId">아이디: </label>
+                <label for="userId">아이디 (영문, 숫자, 특수문자 조합 4~15자): </label>
                 <input type="text" id="userId" name="userId" minlength="4" maxlength="15" required placeholder="4~15자 영문/숫자">
+                <span id="idMsg" class="validation-msg"></span>
                 <small>(필수)</small>
             </p>
             <p>
@@ -96,5 +97,16 @@
     </form>
 
     </div>
+        <script>
+        function validateForm() {
+            const userId = document.getElementById('userId').value;
+            const idRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{4,15}$/;
+            if (!idRegex.test(userId)) {
+                alert("아이디는 영문, 숫자, 특수문자를 포함한 4~15자여야 합니다.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>
