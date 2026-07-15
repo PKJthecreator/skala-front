@@ -1,0 +1,55 @@
+<!-- 1. <div> 및 ID 활용: 메인 카드 컨테이너 -->
+<div id="modern-routine-card">
+    
+    <div class="header-area">
+        <h1>✨ My Perfect Holiday ✨</h1>
+        <p class="subtitle"><b>나만을 위해 온전히 사용하는 시간</b></p>
+    </div>
+
+    <!-- 2. 중첩 HTML 리스트 (바깥쪽 <ul> - 안쪽 <ul>) -->
+    <ul class="routine-container">
+        
+        <!-- 아침 섹션 (활동 4개) -->
+        <li>
+            <h2>🌅아침 및 오전</h2>
+            <!-- CSS 없이 빈 원(circle) 마커를 표시하기 위해 HTML 표준 속성 type="circle" 사용 -->
+            <ul class="task-list" type="circle">
+                <li>🛌 늦잠 자는 <mark>행복</mark> 만끽하기</li>
+                <li>🧘 가벼운 스트레칭으로 몸 깨우기</li>
+                <li>🍳 아침으로 엄마가 만들어 주신 <mark>집밥</mark></li>
+                <li>🎶 좋아하는 <a href="https://youtu.be/SX_ViT4Ra7k?si=kSjFbBelu7foyZmR" target="_blank" rel="noopener noreferrer" class="inline-link">음악</a> 듣기</li>
+            </ul>
+        </li>
+
+        <!-- 오후 섹션 (활동 4개) -->
+        <li>
+            <h2>🌞오후</h2>
+            <ul class="task-list" type="circle">
+                <li>📽️ 영화 등 여가생활 즐기기</li>
+                <li>🍵 좋아하는 차를 마시며 편안히 <b>휴식</b></li>
+                <li>🛍️ 필요한 물건들 <b>쇼핑</b></li>
+                <!-- 인라인 스타일을 빼고 <strong>과 <span>으로 구조 유지 -->
+                <li>💻 조용하게 집에서 <strong><span>개인 과제 및 예습</span></strong> 진행하기</li>
+            </ul>
+        </li>
+
+        <!-- 저녁 섹션 (활동 4개) -->
+        <li>
+            <h2>🎇 저녁 및 밤</h2>
+            <ul class="task-list" type="circle">
+                <li>🍲 정성을 담아 만들어 주신 건강한 <mark>저녁</mark> 즐기기</li>
+                <li>🚩 <strong>목표를 세우고 일주일 돌아보는 시간</strong></li>
+                <li>📌 SKCT, 면접 대비 등 <mark>취업</mark> 준비하기</li>
+                <li>🍗 기숙사에서 먹지 못했던 맛있는 음식 먹어보기 🍜</li>
+            </ul>
+        </li>
+
+    </ul> 
+
+    <!-- 필수 사용 Element: <br> 과 <p> -->
+    <br>
+    <p id="footer-info">
+        🗓️ 작성일: <strong>2026년 7월</strong>
+    </p>
+
+</div>
