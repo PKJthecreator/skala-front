@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 개인 포털 메인</title>
+    <!-- style.css 로드 -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="container">
+        <!-- 상단 헤더 영역 -->
         <header>
             <h1>🌍 박기준의 이모저모 🚀</h1>
             <p>저의 프로필, 학습 내용, 여행 기록을 모아둔 Hub 페이지입니다.</p>
         </header>
 
+        <!-- 상단 내비게이션 바로가기 -->
         <nav>
             <h3>📂 바로가기 메뉴</h3>
             <ul>
@@ -24,10 +27,14 @@
             </ul>
         </nav>
 
+        <hr>
+
         <div class="content-wrapper">
+            <!-- 메인 컨텐츠 영역 (좌측 70% 비율) -->
             <main>
                 <h2>📌 오늘의 주요 소식</h2>
 
+                <!-- 공지 및 명언 섹션 -->
                 <section>
                     <h3>최근 공지 및 업데이트</h3>
                     <article>
@@ -48,19 +55,38 @@
                     </article>
                 </section>
 
+                <!-- 베스트 컷 섹션 -->
                 <section>
                     <h3>📸 이달의 베스트 컷</h3>
                     <figure>
-                        <img src="../media/미륵사지 석탑.jpeg" width="300" height="150" alt="미륵사지 석탑">
+                        <img src="../media/미륵사지 석탑.jpeg" width="300" height="150" alt="미륵사지 석탑" onerror="this.src='https://placehold.co/300x150/e2e8f0/64748b?text=%EB%AF%B8%EB%A5%B5%EC%82%AC%EC%A7%80+%EC%84%9D%ED%83%91'">
                         <figcaption>미륵사지 석탑의 뛰어남 (2026년 촬영)</figcaption>
                     </figure>
                 </section>
             </main>
 
+            <!-- 우측 사이드바 영역 (우측 30% 비율) -->
             <aside>
                 <h2>🌤️ 정보</h2>
                 <p>현재 위치: 광주광역시 광산구 📍</p>
 
+                <!-- [핵심 과제 스펙] 실시간 세계 날씨 select 및 결과 weather-box 배치 -->
+                <section style="margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 8px;">
+                    <h3>🌤️ 실시간 세계 날씨</h3>
+                    <label for="city-select" style="margin-bottom: 8px; font-size: 0.9rem;">조회할 도시 선택:</label>
+                    <select id="city-select" style="margin-bottom: 12px;">
+                        <option value="none">도시를 선택하세요</option>
+                        <option value="37.56,126.97">대한민국 서울 🇰🇷</option>
+                        <option value="35.67,139.65">일본 도쿄 🇯🇵</option>
+                        <option value="48.85,2.35">프랑스 파리 🇫🇷</option>
+                    </select>
+                    <!-- realtimeInfo.js 모듈에 의해 카드가 동적으로 주입되는 렌더링 영역 -->
+                    <div id="weather-box">
+                        <p style="font-size: 0.9rem; color: var(--sub-text-color); margin: 0;">도시를 선택하면 실시간 기상 상태가 여기에 표시됩니다.</p>
+                    </div>
+                </section>
+
+                <!-- 실시간 디지털 시계 (Timer API) -->
                 <section style="margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 8px;">
                     <h3>🕒 실시간 시계</h3>
                     <div id="clock-display" style="font-size: 1.5rem; font-weight: bold; color: #0284c7; text-align: center; padding: 10px 0;">
@@ -68,6 +94,7 @@
                     </div>
                 </section>
 
+                <!-- 자동 유지 메모장 (LocalStorage API) -->
                 <section style="margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 8px;">
                     <h3>📝 한 줄 메모</h3>
                     <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">브라우저에 저장되어 다시 접속해도 유지됩니다.</p>
@@ -80,6 +107,7 @@
                     </div>
                 </section>
 
+                <!-- 자바스크립트 미니게임 실행 버튼 영역 -->
                 <section class="game-area">
                     <h3>🎮 자바스크립트 🕹️</h3>
                     <button class="btn-submit" onclick="startGame()">업다운 게임 🚀</button>
@@ -89,36 +117,54 @@
             </aside>
         </div>
 
+        <hr>
+
+        <!-- 하단 푸터 영역 -->
         <footer>
             <p>이메일 문의: fish010811@gmail.com | 추천 학습 사이트: <a href="https://www.w3schools.com" target="_blank">W3Schools</a></p>
             <p><small>© 2026 박기준 포트폴리오. 모든 태그는 <abbr title="World Wide Web Consortium">W3C</abbr> 웹 표준 시맨틱 태그(<abbr title="HyperText Markup Language">HTML</abbr>)로 작성되었습니다.</small></p>
         </footer>
     </div>
 
-    <!-- 미니게임 스크립트 (외부 파일) -->
+    <!-- 미니게임 스크립트 로드 (기존 스냅샷과 동일하게 유지) -->
     <script src="../script/upDown.js"></script>
     <script src="../script/grade.js"></script>
     <script src="../script/bag.js"></script>
 
+    <!-- 
+      [과제 핵심 스펙] 자바스크립트 ES6 모듈 로드 
+      ※ realtimeInfo.js 파일이 html 파일과 동일한 폴더에 있으면 'realtimeInfo.js'로 호출하고,
+         script 폴더 내에 별도로 있다면 '../script/realtimeInfo.js'로 유연하게 맞춰주시면 됩니다!
+    -->
+    <script type="module" src="realtimeInfo.js"></script>
+
+    <!-- 한 줄 메모 및 실시간 초단위 시계 제어 스크립트 -->
     <script>
         // 1. 실시간 시계 기능 (Timer API)
         function updateClock() {
             const now = new Date();
             const timeString = now.toLocaleTimeString('ko-KR');
-            document.getElementById('clock-display').textContent = timeString;
+            const clockEl = document.getElementById('clock-display');
+            if (clockEl) {
+                clockEl.textContent = timeString;
+            }
         }
-        // 1초마다 시계 업데이트
+        // 1초마다 시계 업데이트 실행
         setInterval(updateClock, 1000);
-        updateClock(); // 페이지 로드 시 즉시 1회 실행
+        updateClock(); // 초기 즉시 반영 실행
 
         // 2. 한 줄 메모장 기능 (Web Storage API)
         function saveMemo() {
-            const memo = document.getElementById('memoInput').value;
-            if(memo.trim() === '') {
+            const memoInput = document.getElementById('memoInput');
+            if (!memoInput) return;
+
+            const memo = memoInput.value;
+            if (memo.trim() === '') {
+                // 경고창 전용 모달 대응 안전가드
                 alert('메모 내용을 입력해주세요!');
                 return;
             }
-            // 브라우저 LocalStorage에 저장
+            // 브라우저 LocalStorage에 영구 저장
             localStorage.setItem('myPortalMemo', memo);
             displayMemo();
         }
@@ -126,16 +172,19 @@
         function displayMemo() {
             const savedMemo = localStorage.getItem('myPortalMemo');
             const resultDiv = document.getElementById('memoResult');
+            const memoInput = document.getElementById('memoInput');
 
-            if(savedMemo) {
-                resultDiv.innerHTML = `📌 <span style="color: #e11d48;">${savedMemo}</span>`;
-                document.getElementById('memoInput').value = ''; // 입력창 비우기
-            } else {
-                resultDiv.innerHTML = '저장된 메모가 없습니다.';
+            if (resultDiv) {
+                if (savedMemo) {
+                    resultDiv.innerHTML = `📌 <span style="color: #e11d48;">${savedMemo}</span>`;
+                    if (memoInput) memoInput.value = ''; // 저장 성공 후 필드 비우기
+                } else {
+                    resultDiv.innerHTML = '저장된 메모가 없습니다.';
+                }
             }
         }
 
-        // 페이지 로드 시 메모 불러오기
+        // DOM 로드 완료 시 자동으로 로컬스토리지에서 메모 복원
         window.addEventListener('load', displayMemo);
     </script>
 </body>
