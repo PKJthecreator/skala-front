@@ -211,6 +211,15 @@ textarea { resize: vertical; min-height: 90px; }
 
 .btn-submit + .btn-reset, .btn-reset + .btn-submit { margin-left: 10px; }
 
+/* 사이드바 미니게임 버튼 영역 - 세로로 쌓고 폭을 꽉 채움 */
+.game-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.game-area h3 { margin-top: 0; }
+.game-area .btn-submit { width: 100%; }
+
 /* 키보드 탭 이동 접근성 */
 .btn-submit:focus-visible, .btn-reset:focus-visible {
     outline: 2px solid var(--primary-color);

@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -58,7 +58,7 @@
             </main>
 
             <aside>
-                <h2>🌤️ 실시간 정보</h2>
+                <h2>🌤️ 정보</h2>
                 <p>현재 위치: 광주광역시 광산구 📍</p>
 
                 <section style="margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 8px;">
@@ -67,17 +67,24 @@
                         00:00:00
                     </div>
                 </section>
-                
-                <section style="padding: 15px; background-color: #f1f5f9; border-radius: 8px;">
-                    <h3>📝 나의 한 줄 메모</h3>
+
+                <section style="margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 8px;">
+                    <h3>📝 한 줄 메모</h3>
                     <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">브라우저에 저장되어 다시 접속해도 유지됩니다.</p>
                     <div style="display: flex; gap: 5px;">
                         <input type="text" id="memoInput" placeholder="오늘의 목표는?" style="flex: 1; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px;">
                         <button onclick="saveMemo()" style="padding: 8px 12px; background-color: #10b981; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">저장</button>
                     </div>
                     <div id="memoResult" style="margin-top: 10px; font-size: 0.95rem; font-weight: bold; color: #334155;">
-                        저장된 메모가 없습니다.
+                        메모가 없습니다.
                     </div>
+                </section>
+
+                <section class="game-area">
+                    <h3>🎮 자바스크립트 🕹️</h3>
+                    <button class="btn-submit" onclick="startGame()">업다운 게임 🚀</button>
+                    <button class="btn-submit" onclick="checkGrade()">성적 계산기 📊</button>
+                    <button class="btn-submit" onclick="showMyBag()">내 가방 보기ㄴ🎒</button>
                 </section>
             </aside>
         </div>
@@ -87,7 +94,12 @@
             <p><small>© 2026 박기준 포트폴리오. 모든 태그는 <abbr title="World Wide Web Consortium">W3C</abbr> 웹 표준 시맨틱 태그(<abbr title="HyperText Markup Language">HTML</abbr>)로 작성되었습니다.</small></p>
         </footer>
     </div>
-    
+
+    <!-- 미니게임 스크립트 (외부 파일) -->
+    <script src="../script/upDown.js"></script>
+    <script src="../script/grade.js"></script>
+    <script src="../script/bag.js"></script>
+
     <script>
         // 1. 실시간 시계 기능 (Timer API)
         function updateClock() {
@@ -114,7 +126,7 @@
         function displayMemo() {
             const savedMemo = localStorage.getItem('myPortalMemo');
             const resultDiv = document.getElementById('memoResult');
-            
+
             if(savedMemo) {
                 resultDiv.innerHTML = `📌 <span style="color: #e11d48;">${savedMemo}</span>`;
                 document.getElementById('memoInput').value = ''; // 입력창 비우기
