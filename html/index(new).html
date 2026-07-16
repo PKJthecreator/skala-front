@@ -7,13 +7,15 @@
     <!-- style.css 로드 -->
     <link rel="stylesheet" href="../css/style.css">
     <script>
-        // HTTP로 접속한 경우 HTTPS로 자동 리다이렉트
-        // (localhost, 127.0.0.1 등 로컬 개발 환경은 예외 처리)
-        if (
-            location.protocol === 'http:' &&
-            location.hostname !== 'localhost' &&
-            location.hostname !== '127.0.0.1'
-        ) {
+       // HTTP로 접속한 경우 HTTPS로 자동 리다이렉트
+        // (localhost, 127.0.0.1, 사설 IP 대역 등 로컬/사내망 테스트 환경은 예외 처리)
+        function isLocalOrPrivateHost(hostname) {
+            if (hostname === 'localhost' || hostname === '127.0.0.1') return true;
+            // 사설 IP 대역: 10.x.x.x / 172.16~31.x.x / 192.168.x.x
+            return /^(10\.|172\.(1[6-9]|2\d|3[0-1])\.|192\.168\.)/.test(hostname);
+        }
+ 
+        if (location.protocol === 'http:' && !isLocalOrPrivateHost(location.hostname)) {
             location.replace('https://' + location.host + location.pathname + location.search + location.hash);
         }
     </script>
