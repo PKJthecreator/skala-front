@@ -341,3 +341,9 @@ header h1 {
         transition-duration: 0.001ms !important;
     }
 }
+
+/* 마우스 올렸을 때 둥실 떠오르는 효과 */
+aside section:last-child button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
