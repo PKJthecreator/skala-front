@@ -3,188 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>😘나의 프로필 페이지</title>
+    <title>😘 나의 프로필 페이지</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body bgcolor="#f4f7f6" text="#333333">
 
-<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
-    <tr>
-        <td align="center">
-            
-            <table border="0" cellpadding="20" cellspacing="0" width="700" bgcolor="#ffffff">
-                <tr>
-                    <td>
+<body>
 
-                        <div align="center">
-                            <h1>👋 안녕하세요! 저를 소개합니다</h1>
-                            <p>
-                                <font size="3" color="#666666" face="돋움, Dotum">
-                                    <mark>아래는 제가 좋아하는 것들과 올해의 계획, 그리고 저를 표현하는 단어들입니다.</mark>
-                                </font>
-                            </p>
-                        </div>
+<div class="container">
+
+    <header>
+        <h1>👋 안녕하세요! 저를 소개합니다</h1>
+        <p>
+            <mark>아래는 제가 좋아하는 것들과 올해의 계획, 그리고 저를 표현하는 단어들입니다.</mark>
+        </p>
+    </header>
+
+    <div class="content-wrapper">
+
+        <main>
+
+            <!-- 기본 정보 -->
+            <section class="trip-card">
+
+                <h2>👨‍💻 기본 정보</h2>
+
+                <p>
+                    <strong>이름</strong><br>
+                    <ruby>박기준<rt>Park Ki Jun</rt></ruby>
+                </p>
+
+                <p>
+                    📌 <strong>소속</strong><br>
+                    SKALA 4기 광주캠퍼스 (교육 2반)
+                </p>
+
+                <p>
+                    ✉️ <strong>문의</strong><br>
+                    <a href="mailto:fish010811@gmail.com">
+                        fish010811@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    교수님 피드백 언제든 환영합니다 😊
+                </p>
+
+            </section>
+
+            <!-- 좋아하는 음식 -->
+            <section class="trip-card">
+
+                <h2>🍕 내가 좋아하는 음식</h2>
+
+                <ul>
+
+                    <li>
+                        <a href="https://ko.wikipedia.org/wiki/치킨" target="_blank">
+                            <strong>바삭한 치킨 🍗</strong>
+                        </a>
+                        <br>
+                        일주일에 한 번은 꼭 먹는, 짭짤바삭의 그 맛
+                    </li>
+
+                    <br>
+
+                    <li>
+                        <a href="https://ko.wikipedia.org/wiki/떡볶이" target="_blank">
+                            <strong>엽기 마라 로제 떡볶이 🌶️</strong>
+                        </a>
+                        <br>
+                        스트레스가 쌓일 때 매운맛과 감칠맛으로 활력을 되찾는 소울푸드
+                    </li>
+
+                    <br>
+
+                    <li>
+                        <a href="https://ko.wikipedia.org/wiki/라멘" target="_blank">
+                            <strong>깊은 육수와 짠맛의 조화, 라멘 🍜</strong>
+                        </a>
+                        <br>
+                        진한 국물에 밥 말아 먹으면 하루 종일 든든
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <!-- 올해 할 일 -->
+            <section class="trip-card">
+
+                <h2>📅 올해 할 일</h2>
+
+                <ol>
+
+                    <li>
+
+                        <strong>꾸준히 SKALA 예습 및 복습 📚</strong>
+
+                        <p>7~10월, 팀장님의 조언 적극 실천하기</p>
+
+                        <progress value="15" max="100"></progress>
+
+                        <span>15% 달성</span>
+
+                    </li>
+
+                    <br>
+
+                    <li>
+
+                        <strong>스트레스 해소용 여행 및 산책 💪</strong>
+
+                        <p>매주 한 번 이상 실천하기</p>
+
+                        <progress value="50" max="100"></progress>
+
+                        <span>50% 달성</span>
+
+                    </li>
+
+                    <br>
+
+                    <li>
+
+                        <strong>새로운 프로그래밍 언어 배우기 💻</strong>
+
+                        <p>Python 기본 문법 마스터 및 스마트 데이터 분석 실습 완성</p>
+
+                        <progress value="30" max="100"></progress>
+
+                        <span>30% 달성</span>
+
+                    </li>
+
+                </ol>
+
+            </section>
+            <!-- 나를 설명하는 단어 -->
+            <section class="trip-card">
+
+                <h2>✨ 나를 설명하는 단어들</h2>
+
+                <dl>
+
+                    <dt><strong>🏃‍♂️ 호기심 (Curiosity)</strong></dt>
+                    <dd>
+                        새로운 기술이나 흥미로운 트렌드를 보면 직접 경험해보고
+                        배워야 직성이 풀립니다.
+                        호기심을 바탕으로 기술의 원리를 깊이 이해하려고 노력합니다.
+                    </dd>
+
+                    <br>
+
+                    <dt><strong>🚩 꾸준함 (Consistency)</strong></dt>
+                    <dd>
+                        매일 작은 계획이라도 세우고 실천하려고 노력합니다.
+                        작은 습관이 큰 변화를 만든다고 믿습니다.
+                    </dd>
+
+                    <br>
+
+                    <dt><strong>🎨 크리에이티브 (Creative)</strong></dt>
+                    <dd>
+                        단순한 결과물보다 보기 좋고 사용하기 편한 결과물을
+                        만드는 것을 좋아합니다.
+                    </dd>
+
+                </dl>
+
+            </section>
+
+
+            <!-- 목표 -->
+            <section class="trip-card">
+
+                <h2>💡 나의 목표</h2>
+
+                <details>
+
+                    <summary><strong>클릭해서 확인하기</strong></summary>
+
+                    <blockquote>
+
+                        <p>
+
+                            <em>
+
+                                "최선을 다해 노력해서 SK에서 AI로 혁신을 이루는
+                                리더가 되겠습니다.<br>
+
+                                AXgenticWire를 활용하여 제조혁신과
+                                디지털 팩토리를 구현하는 AI 개발자가 되고 싶습니다."
+
+                            </em>
+
+                        </p>
+
+                    </blockquote>
+
+                </details>
+
+            </section>
+
+
+            <!-- 피드백 -->
+            <section class="trip-card">
+
+                <h2>📝 교수님 / 동료 피드백</h2>
+
+                <form
+                    action="#"
+                    method="get"
+                    onsubmit="alert('과제 평가 감사드립니다!'); return false;">
+
+                    <fieldset>
+
+                        <legend>한 줄 피드백</legend>
+
+                        <label for="role">
+                            작성자 관계
+                        </label>
+
+                        <select id="role" name="role">
+
+                            <option>교수님 🧑‍🏫</option>
+                            <option>SKALA 동기 👥</option>
+                            <option>외부 방문객 👤</option>
+
+                        </select>
+
+                        <br><br>
+
+                        <label for="feedback">
+
+                            피드백
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="feedback"
+                            name="feedback"
+                            placeholder="실습 흔적이 돋보입니다!"
+                            required>
+
+                        <br><br>
+
+                        <label>
+
+                            추천 점수
+
+                        </label>
+
                         <br>
 
-                        <table border="1" cellpadding="12" cellspacing="0" width="100%" bgcolor="#fdfdfd" bordercolor="#e0e0e0">
-                            <tr>
-                                <td align="center" bgcolor="#f8f9fa" width="30%">
-                                    <font size="6">👨‍💻</font><br>
-                                    <font size="2" color="#777777"><b>Sk AI Leader</b></font>
-                                </td>
-                                <td>
-                                    <font size="4"><b>이름: <ruby>박기준<rt>Park Ki Jun</rt></ruby></b></font><br>
-                                    <font size="2" color="#555555">
-                                        📌 <b>소속:</b> SKALA 4기 광주캠퍼스 (교육 2반)<br>
-                                        ✉️ <b>문의:</b> <a href="fish010811@gmail.com">fish010811@gmail.com</a> (교수님 피드백 환영합니다!)
-                                    </font>
-                                </td>
-                            </tr>
-                        </table>
+                        <input
+                            type="radio"
+                            id="score5"
+                            name="score"
+                            checked>
+
+                        <label for="score5">
+                            A+ 🌟
+                        </label>
+
+                        <input
+                            type="radio"
+                            id="score4"
+                            name="score">
+
+                        <label for="score4">
+                            A 👍
+                        </label>
+
+                        <input
+                            type="radio"
+                            id="score3"
+                            name="score">
+
+                        <label for="score3">
+                            B 👌
+                        </label>
+
                         <br><br>
 
-                        <fieldset>
-                            <legend><font size="4" color="#ff6b6b"><b>🍕 내가 좋아하는 음식</b></font></legend>
-                            <ul type="square">
-                                <li>
-                                    <a href="https://ko.wikipedia.org/wiki/치킨" target="_blank">
-                                        <font color="#495057"><b>바삭한 치킨 🍗</b></font>
-                                    </a>
-                                    - <font size="2" >일주일에 한번은 꼭 먹는, 짭짤바삭의 그맛</font>
-                                </li>
-                                <br>
-                                <li>
-                                    <a href="https://ko.wikipedia.org/wiki/떡볶이" target="_blank">
-                                        <font color="#495057"><b>엽기 마라 로제 떡볶이 🌶️</b></font>
-                                    </a>
-                                    - <font size="2" >스트레스가 쌓일 때 매운맛과 감칠맛으로 활력을 되찾는 소울푸드</font>
-                                </li>
-                                <br>
-                                <li>
-                                    <a href="https://ko.wikipedia.org/wiki/라멘" target="_blank">
-                                        <font color="#495057"><b>깊은 육수와 짠맛의 조화, 라멘 🍜</b></font>
-                                    </a>
-                                    - <font size="2" >진한 국물에 밥말아 먹으면 하루 종일 든든</font>
-                                </li>
-                            </ul>
-                        </fieldset>
-                        <br><br>
+                        <input
+                            type="submit"
+                            value="피드백 남기기"
+                            class="btn-submit">
 
-                        <fieldset>
-                            <legend><font size="4" color="#4dabf7"><b>📅 올해 할 일</b></font></legend>
-                            <ol type="A">
-                                <li>
-                                    <strong>꾸준히 skala 예습 및 복습 📚</strong><br>
-                                    <font size="2" color="#868e96">7-10, 팀장님의 조언 따르기</font><br>
-                                    <progress value="15" max="100"></progress> <font size="2" color="#4dabf7"><b>(15% 달성)</b></font>
-                                </li>
-                                <br>
-                                <li>
-                                    <strong>스트레스 해소용 여행 및 산책가기 💪</strong><br>
-                                    <font size="2" color="#868e96">매주 한번 이상 참여하기</font><br>
-                                    <progress value="50" max="100"></progress> <font size="2" color="#4dabf7"><b>(50% 달성)</b></font>
-                                </li>
-                                <br>
-                                <li>
-                                    <strong>새로운 프로그래밍 언어 배우기 💻</strong><br>
-                                    <font size="2" color="#868e96">Python 기본 문법 마스터 및 스마트 데이터 분석 분석 실습 완성</font><br>
-                                    <progress value="30" max="100"></progress> <font size="2" color="#4dabf7"><b>(30% 달성)</b></font>
-                                </li>
-                            </ol>
-                        </fieldset>
-                        <br><br>
+                        <input
+                            type="reset"
+                            value="초기화"
+                            class="btn-reset">
 
-                        <fieldset>
-                            <legend><font size="4" color="#fcc419"><b>✨ 나를 설명하는 단어들</b></font></legend>
-                            <dl>
-                                <dt><font size="3" color="#1c7ed6"><b>🏃‍♂️ 호기심 (Curiosity)</b></font></dt>
-                                <dd>
-                                    <font size="2" color="#495057">
-                                        새로운 기술이나 흥미로운 트렌드를 보면 직접 경험해보고 배워야 직성이 풀립니다.<br>
-                                        호기심을 바탕으로 기술의 작동 원리를 깊이 있게 분석하는 성향을 기르고 있습니다.
-                                    </font>
-                                </dd>
-                                <br>
-                                
-                                <dt><font size="3" color="#12b886"><b>🚩 꾸준함 (Consistency)</b></font></dt>
-                                <dd>
-                                    <font size="2" color="#495057">
-                                        매일 작은 계획이라도 세우고 그것을 지키기 위해 노력하는 성실함을 가지고 있습니다.<br>
-                                        하루 10분씩 독서하거나 잔디를 심는 작은 성실함이 큰 변화를 만든다고 굳게 믿습니다.
-                                    </font>
-                                </dd>
-                                <br>
-                                
-                                <dt><font size="3" color="#e64980"><b>🎨 크리에이티브 (Creative)</b></font></dt>
-                                <dd>
-                                    <font size="2" color="#495057">
-                                        단순한 결과물보다는 사용자에게 더 나은 경험과 시각적인 즐거움을 주는 것을 좋아합니다.<br>
-                                        정답이 정해진 코드 이상으로 사람들에게 감동을 전해줄 수 있는 레이아웃을 매번 고민합니다.
-                                    </font>
-                                </dd>
-                            </dl>
-                        </fieldset>
-                        <br><br>
+                    </fieldset>
 
-                        <details>
-                            <summary>💡 <b>나의 목표 (클릭해주세요)</b></summary>
-                            <hr size="1" color="#cccccc">
-                            <blockquote>
-                                <font size="2" color="#555555">
-                                    <i>
-                                        "최선을 다해 노력해서 SK에서 AI로 혁신을 이루는 리더가 되겠습니다! sk ax의 AXgenticWire를 이용하여 <br>
-                                         AI로 제조혁신을 구현하고, 디지털 팩토리를 만들겠습니다."
-                                    </i>
-                                </font>
-                            </blockquote>
-                        </details>
-                        <br><br>
+                </form>
 
-                        <form action="#" method="get" onsubmit="alert('과제 평가 감사드립니다! 폼 전송 실습이 성공적으로 구동됩니다.'); return false;">
-                            <fieldset bgcolor="#f8f9fa">
-                                <legend><font size="3" color="#2b2b2b"><b>📝 교수님 / 동료 한 줄 조언 및 피드백</b></font></legend>
-                                <table border="0" width="100%" cellpadding="6">
-                                    <tr>
-                                        <td width="30%"><strong>작성자 관계:</strong></td>
-                                        <td>
-                                            <select name="role">
-                                                <option value="professor" selected>교수님 🧑‍🏫</option>
-                                                <option value="peer">SKALA 4기 동기들 👥</option>
-                                                <option value="guest">외부 방문객 👤</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>한 줄 피드백:</strong></td>
-                                        <td>
-                                            <input type="text" name="feedback" size="40" placeholder="예) 실습 흔적이 돋보입니다. 아주 잘하셨네요!" required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>추천 점수:</strong></td>
-                                        <td>
-                                            <input type="radio" id="score5" name="score" value="5" checked><label for="score5">만점 (A+) 🌟</label>
-                                            <input type="radio" id="score4" name="score" value="4"><label for="score4">우수 (A) 👍</label>
-                                            <input type="radio" id="score3" name="score" value="3"><label for="score4">보통 (B) 👌</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" align="center">
-                                            <input type="submit" value="피드백 남기기">
-                                            <input type="reset" value="초기화">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </fieldset>
-                        </form>
+            </section>
 
-                    </td>
-                </tr>
-            </table>
+        </main>
 
-        </td>
-    </tr>
-</table>
+
+        <!-- 오른쪽 사이드 -->
+        <aside>
+
+            <div class="section-box">
+
+                <h3>👤 Profile</h3>
+
+                <p>
+                    SKALA 4기
+                </p>
+
+                <p>
+                    AI Leader 과정
+                </p>
+
+                <p>
+                    광주캠퍼스
+                </p>
+
+            </div>
+
+            <div class="section-box">
+
+                <h3>🎯 올해 목표</h3>
+
+                <ul>
+
+                    <li>SKALA 우수 수료</li>
+
+                    <li>Python 실력 향상</li>
+
+                    <li>AI 프로젝트 완성</li>
+
+                    <li>SKCT 합격</li>
+
+                </ul>
+
+            </div>
+
+            <div class="section-box">
+
+                <h3>📌 Favorite</h3>
+
+                <p>🍗 치킨</p>
+
+                <p>🌶️ 떡볶이</p>
+
+                <p>🍜 라멘</p>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+    <footer>
+
+        <p>
+
+            © 2026 박기준 | My Profile Page
+
+        </p>
+
+    </footer>
+
+</div>
 
 </body>
 </html>
