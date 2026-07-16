@@ -191,7 +191,16 @@
 
             if (resultDiv) {
                 if (savedMemo) {
-                    resultDiv.innerHTML = `📌 <span style="color: #e11d48;">${savedMemo}</span>`;
+                    // 개선된 코드 (XSS 방어)
+                resultDiv.innerHTML = ''; // 초기화
+                const iconSpan = document.createElement('span'); 
+                iconSpan.textContent = '📌 ';
+                const textSpan = document.createElement('span');
+                textSpan.style.color = '#e11d48';
+                textSpan.textContent = savedMemo; // 입력값을 순수 텍스트로만 처리 (HTML 태그 실행 원천 차단)
+
+                 resultDiv.appendChild(iconSpan);
+                 resultDiv.appendChild(textSpan);
                     if (memoInput) memoInput.value = ''; // 저장 성공 후 필드 비우기
                 } else {
                     resultDiv.innerHTML = '저장된 메모가 없습니다.';
