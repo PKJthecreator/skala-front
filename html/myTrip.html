@@ -12,10 +12,18 @@
             <h1>🌍 나의 여행목록 🚗</h1>
         </header>
         
-        <audio controls>
-            <source src="../media/여행노래.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+        <!-- 예쁘게 꾸민 뮤직 플레이어 영역 -->
+        <div class="section-box" style="max-width: 450px; margin: 0 auto 30px auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <!-- 플레이어 제목 및 꾸밈 요소 -->
+            <h3 style="justify-content: center; margin: 0;">🎧 여행을 떠나는 기분</h3>
+            <p style="margin: 0; font-size: 0.9rem; color: var(--sub-text-color);">나만의 플레이리스트 재생 중...</p>
+            
+            <!-- 오디오 태그에 인라인 스타일로 둥근 테두리와 그림자 추가 -->
+            <audio controls style="width: 100%; border-radius: 50px; box-shadow: var(--shadow); outline: none; margin-top: 5px;">
+                <source src="../media/여행노래.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
         <hr>
         
         <!-- 여행 카드 그리드 영역 -->
