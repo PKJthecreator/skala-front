@@ -11,30 +11,43 @@
         <header>
             <h1>🌍 나의 여행목록 🚗</h1>
         </header>
+        
         <audio controls>
-        <source src="../media/여행노래.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <hr>
-    <div class="trip-grid-container">
-        <p class="trip-card">
-            <img src="../media/미륵사지 석탑.jpeg" width="400" height="200" alt="익산 미륵사지"><br>익산 미륵사지 (2026년)
-        </p>
-        <p class="trip-card">
-            <img src="../media/전주 객사.jpeg" width="400" height="200" alt="전주 객사"><br>전주 객사 (2025년)
-        </p>
-        <p class="trip-card">
-            <img src="../media/옥정호 붕어섬 출렁다리.jpeg" width="400" height="200" alt="옥정호 붕어섬 출렁다리"><br>옥정호 붕어섬 출렁다리 (2024년)
-        </p>
-    </div>
-    <hr>
-    <h2>📹 여행지 관련 영상 📽️</h2>
-    <p>
-        <video width="400" height="225" controls>
-            <source src="../media/미륵사지 석탑 영상.mp4" type="video/mp4">
-        </video>
-        <br>미륵사지의 아름다움 🎇
-    </p>
+            <source src="../media/여행노래.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <hr>
+        
+        <!-- 여행 카드 그리드 영역 -->
+        <div class="trip-grid-container">
+            <div class="trip-card">
+                <img src="../media/미륵사지 석탑.jpeg" alt="익산 미륵사지">
+                <h3>익산 미륵사지</h3>
+                <span class="tag" data-status="예정">2026년</span>
+            </div>
+            
+            <div class="trip-card">
+                <img src="../media/전주 객사.jpeg" alt="전주 객사">
+                <h3>전주 객사</h3>
+                <span class="tag" data-status="완료">2025년</span>
+            </div>
+            
+            <div class="trip-card">
+                <img src="../media/옥정호 붕어섬 출렁다리.jpeg" alt="옥정호 붕어섬 출렁다리">
+                <h3>옥정호 붕어섬 출렁다리</h3>
+                <span class="tag" data-status="완료">2024년</span>
+            </div>
+        </div>
+        <hr>
+        
+        <!-- 영상 영역 -->
+        <h2>📹 여행지 관련 영상 📽️</h2>
+        <div class="section-box">
+            <video controls>
+                <source src="../media/미륵사지 석탑 영상.mp4" type="video/mp4">
+            </video>
+            <h3>미륵사지의 아름다움 🎇</h3>
+        </div>
     </div>
 </body>
 </html>
