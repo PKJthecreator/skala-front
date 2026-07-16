@@ -68,7 +68,14 @@
             <!-- 우측 사이드바 영역 (우측 30% 비율) -->
             <aside>
                 <h2>🌤️ 정보</h2>
-                <p>현재 위치: 광주광역시 광산구 📍</p>
+                <p id="ip-location">📍 위치 정보를 불러오는 중...</p>
+ 
+                <section style="margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 8px;">
+                    <h3>🕒 실시간 시계</h3>
+                    <div id="clock-display" style="font-size: 1.5rem; font-weight: bold; color: #0284c7; text-align: center; padding: 10px 0;">
+                        00:00:00
+                    </div>
+                </section>
 
                 <!-- [핵심 과제 스펙] 실시간 세계 날씨 select 및 결과 weather-box 배치 -->
                 <section style="margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 8px;">
@@ -186,6 +193,58 @@
 
         // DOM 로드 완료 시 자동으로 로컬스토리지에서 메모 복원
         window.addEventListener('load', displayMemo);
+
+        // 3. 브라우저 Geolocation API 기반 정확한 위치 표시
+        //    (GPS/Wi-Fi 기반이라 IP 위치보다 정확하지만, 사용자의 허용이 필요합니다)
+        function showLocationError(msg) {
+            document.getElementById('ip-location').textContent = '📍 ' + msg;
+        }
+ 
+        if (!navigator.geolocation) {
+            showLocationError('이 브라우저는 위치 정보 기능을 지원하지 않습니다.');
+        } else {
+            document.getElementById('ip-location').textContent = '📍 위치 정보를 요청하는 중... (팝업에서 허용을 눌러주세요)';
+ 
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+ 
+                    // 좌표 -> 주소 변환 (역지오코딩, BigDataCloud 무료 API, 키 불필요)
+                    fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=ko`)
+                        .then(res => res.json())
+                        .then(data => {
+                            const city = data.city || data.locality || '';
+                            const region = data.principalSubdivision || '';
+                            const country = data.countryName || '';
+                            document.getElementById('ip-location').textContent =
+                                `📍 현재 위치: ${country} ${region} ${city}`;
+                        })
+                        .catch(() => {
+                            // 주소 변환 실패 시 좌표라도 표시
+                            document.getElementById('ip-location').textContent =
+                                `📍 현재 좌표: 위도 ${lat.toFixed(4)}, 경도 ${lon.toFixed(4)}`;
+                        });
+                },
+                function (error) {
+                    // 사용자가 거부했거나 위치를 가져올 수 없는 경우
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            showLocationError('위치 접근 권한이 거부되었습니다.');
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            showLocationError('위치 정보를 사용할 수 없습니다.');
+                            break;
+                        case error.TIMEOUT:
+                            showLocationError('위치 요청 시간이 초과되었습니다.');
+                            break;
+                        default:
+                            showLocationError('위치 정보를 가져오지 못했습니다.');
+                    }
+                },
+                { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
+            );
+        }
     </script>
 </body>
 </html>
