@@ -74,7 +74,7 @@ hr {
    [미션 2] 박스 모델 & 레이아웃 - 카드형 UI
    ========================================================================== */
 .container {
-    max-width: 700px;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 40px;
     background-color: #fff;
@@ -257,8 +257,10 @@ main {
 aside {
     flex: 3;                          /* 전체 폭의 30% */
     background-color: var(--bg-color);
-    padding: 15px;
-    border-radius: 6px;
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #eef0f3;
 }
 
 /* 여행지 앨범 3열 바둑판 배치 (Grid) */
